@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+  <gazebo reference="chassis">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="fl_wheel">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="fr_wheel">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="ml_wheel">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="mr_wheel">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="rl_wheel">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="rr_wheel">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+<gazebo>
+
+<!--
+     diff drive plugin 
+    <plugin name='gz::sim::systems::DiffDrive' filename='gz-sim-diff-drive-system'>
+    
+    
+           Wheel Information 
+            <left_joint>fl_wheel_joint</left_joint>
+            <right_joint>fr_wheel_joint</right_joint>
+            <wheel_separation>0.626</wheel_separation>
+            <wheel_diameter>0.2</wheel_diameter>
+    
+
+           Limits 
+            <max_linear_acceleration>10.0</max_linear_acceleration>
+    
+
+             Output 
+            <topic>cmd_vel</topic>
+            <tf_topic>/tf</tf_topic>
+            <frame_id>odom</frame_id>
+            <child_frame_id>base_footprint </child_frame_id>
+            <odom_publisher_frequency>30</odom_publisher_frequency>
+    
+    
+    </plugin>
+
+     Joint state publisher 
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+        <topic>joint_states</topic>
+        <joint_name>fl_wheel_joint</joint_name>
+        <joint_name>fr_wheel_joint</joint_name>
+    </plugin>
+
+-->
+
+<plugin name="gz::sim::systems::DiffDrive" filename="gz-sim-diff-drive-system">
+  <!-- Left wheels -->
+  <left_joint>fl_wheel_joint</left_joint>
+  <left_joint>ml_wheel_joint</left_joint>
+  <left_joint>rl_wheel_joint</left_joint>
+
+  <!-- Right wheels -->
+  <right_joint>fr_wheel_joint</right_joint>
+  <right_joint>mr_wheel_joint</right_joint>
+  <right_joint>rr_wheel_joint</right_joint>
+
+  <!-- Tuning -->
+  <wheel_separation>0.626</wheel_separation>
+  <wheel_diameter>0.2</wheel_diameter>
+
+  <max_linear_acceleration>10.0</max_linear_acceleration>
+
+  <!-- ROS Interface -->
+  <topic>cmd_vel</topic>
+  <tf_topic>/tf</tf_topic>
+  <frame_id>odom</frame_id>
+  <child_frame_id>base_footprint</child_frame_id>
+  <odom_publisher_frequency>30</odom_publisher_frequency>
+</plugin>
+
+</gazebo>
+
+</robot>
