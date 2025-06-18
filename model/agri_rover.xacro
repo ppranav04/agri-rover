@@ -8,12 +8,13 @@
     <color rgba="1 0 0 1"/>
   </material>
 
+<!-- CHASSIS -->
   <link name= "base_footprint"></link>
 
   <link name="chassis">
     <visual>
       <origin
-        xyz="-0.0325699147746112 -0.0148144596659951 0.0176361848244046"
+        xyz="0 0 0.01"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -26,24 +27,15 @@
       </material>
     </visual>
 
-    <inertial>
+    <xacro:inertial_box mass = "39.7761394814532" x = "1.202" y="0.674" z="0.650">
       <origin
-        xyz="-0.0325699147746112 -0.0148144596659951 0.0176361848244046"
+        xyz="0 0 0.01"
         rpy="0 0 0" />
-      <mass
-        value="39.7761394814532" />
-      <inertia
-        ixx="0.35694476106406"
-        ixy="-1.08000535961728E-05"
-        ixz="0.00834860225034306"
-        iyy="0.287498385304558"
-        iyz="-0.00209844360915769"
-        izz="0.477878098599329" />
-    </inertial>
-    
+    </xacro:inertial_box>
+
     <collision>
       <origin
-        xyz="-0.0325699147746112 -0.0148144596659951 0.0176361848244046"
+        xyz="0 0 0.01"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -54,12 +46,12 @@
 
 
   <joint name="chassis_joint" type="fixed">
-    <origin xyz="0 0 0.57" rpy="0 0 0" />
+    <origin xyz="0 0 0.56" rpy="0 0 0" />
     <parent link="base_footprint" />
     <child link="chassis" />
   </joint>
 
-<!-- FRONT LEFT WHEEL-->
+<!-- FRONT LEFT WHEEL -->
 <joint name="fl_wheel_joint" type="continuous">
   <parent link="chassis"/>
   <child link="fl_wheel"/>
@@ -83,17 +75,12 @@
       <cylinder radius="0.1" length="0.04"/>
     </geometry>
   </collision>
-<inertial>
-  <mass value="1.0"/>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
+  <xacro:inertial_cylinder mass="2.0" length="0.04" radius="0.1">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:inertial_cylinder>
 </link>
 
-<!-- FRONT RIGHT WHEEL-->
+<!-- FRONT RIGHT WHEEL -->
 <joint name="fr_wheel_joint" type="continuous">
   <parent link="chassis"/>
   <child link="fr_wheel"/>
@@ -117,17 +104,12 @@
       <cylinder radius="0.1" length="0.04"/>
     </geometry>
   </collision>
-<inertial>
-  <mass value="1.0"/>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
+  <xacro:inertial_cylinder mass="2.0" length="0.04" radius="0.1">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:inertial_cylinder>
 </link>
 
-<!-- MIDDLE LEFT WHEEL-->
+<!-- MIDDLE LEFT WHEEL -->
 <joint name="ml_wheel_joint" type="continuous">
   <parent link="chassis"/>
   <child link="ml_wheel"/>
@@ -151,17 +133,12 @@
       <cylinder radius="0.1" length="0.04"/>
     </geometry>
   </collision>
-<inertial>
-  <mass value="1.0"/>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
+  <xacro:inertial_cylinder mass="2.0" length="0.04" radius="0.1">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:inertial_cylinder>
 </link>
 
-<!-- MIDDLE RIGHT WHEEL-->
+<!-- MIDDLE RIGHT WHEEL -->
 <joint name="mr_wheel_joint" type="continuous">
   <parent link="chassis"/>
   <child link="mr_wheel"/>
@@ -185,17 +162,12 @@
       <cylinder radius="0.1" length="0.04"/>
     </geometry>
   </collision>
-<inertial>
-  <mass value="1.0"/>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
+  <xacro:inertial_cylinder mass="2.0" length="0.04" radius="0.1">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:inertial_cylinder>
 </link>
 
-<!-- REAR LEFT WHEEL-->
+<!-- REAR LEFT WHEEL -->
 <joint name="rl_wheel_joint" type="continuous">
   <parent link="chassis"/>
   <child link="rl_wheel"/>
@@ -219,17 +191,12 @@
       <cylinder radius="0.1" length="0.04"/>
     </geometry>
   </collision>
-<inertial>
-  <mass value="1.0"/>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
+  <xacro:inertial_cylinder mass="2.0" length="0.04" radius="0.1">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:inertial_cylinder>
 </link>
 
-<!-- REAR RIGHT WHEEL-->
+<!-- REAR RIGHT WHEEL -->
 <joint name="rr_wheel_joint" type="continuous">
   <parent link="chassis"/>
   <child link="rr_wheel"/>
@@ -253,14 +220,9 @@
       <cylinder radius="0.1" length="0.04"/>
     </geometry>
   </collision>
-<inertial>
-  <mass value="1.0"/>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
+  <xacro:inertial_cylinder mass="2.0" length="0.04" radius="0.1">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:inertial_cylinder>
 </link>
 
 </robot>
