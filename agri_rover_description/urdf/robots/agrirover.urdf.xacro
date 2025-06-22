@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="agrirover">
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+    <xacro:arg name="prefix" default=""/>
+    <material name="red">
+      <color rgba="1 0 0 1"/>
+    </material>
+
+    <xacro:include filename="$(find agri_rover_description)/urdf/mech/agrirover_base.urdf.xacro"/>
+    <xacro:include filename="$(find agri_rover_description)/urdf/mech/inertial_macros.urdf.xacro"/>
+    <xacro:include filename="$(find agri_rover_description)/urdf/sensors/rgbd_camera.urdf.xacro"/>
+    <xacro:include filename="$(find agri_rover_description)/urdf/sensors/lidar.urdf.xacro"/>
+    <xacro:include filename="$(find agri_rover_description)/urdf/sensors/imu.urdf.xacro"/>
+
+
+    <xacro:rgbd_camera
+      prefix="$(arg prefix)"
+      camera_name="cam_1"
+      xyz_offset="0.35 0 0.18"
+      rpy_offset="0 0 0"/>
+
+    <xacro:lidar_sensor
+      prefix="$(arg prefix)"
+      parent="chassis"
+      frame_id="laser_frame"
+      xyz_offset="0 0 0.3"
+      rpy_offset="0 0 0"
+      mesh_xyz_offset="0 0 0"
+      mesh_rpy_offset="${-M_PI/2} 0 0"
+      topic_name="scan"/>
+
+    <xacro:imu_sensor
+      prefix="$(arg prefix)"
+      parent="chassis"
+      frame_id="imu"
+      xyz_offset="0 0 0.006"
+      rpy_offset="0 0 0"
+      update_rate="15.0"
+      topic_name="imu/data"/>
+
+</robot>    
