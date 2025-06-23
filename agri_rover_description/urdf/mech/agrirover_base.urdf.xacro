@@ -13,7 +13,7 @@
   <link name="chassis">
     <visual>
       <origin
-        xyz="0 0 0"
+        xyz="0 0 0.01"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -28,13 +28,13 @@
 
     <xacro:inertial_box mass = "39.7761394814532" x = "1.202" y="0.674" z="0.650">
       <origin
-        xyz="0 0 0"
+        xyz="0 0 0.01"
         rpy="0 0 0" />
     </xacro:inertial_box>
 
     <collision>
       <origin
-        xyz="0 0 0"
+        xyz="0 0 0.01"
         rpy="0 0 0" />
       <geometry>
         <mesh

@@ -9,6 +9,7 @@
 
     <xacro:include filename="$(find agri_rover_description)/urdf/mech/agrirover_base.urdf.xacro"/>
     <xacro:include filename="$(find agri_rover_description)/urdf/mech/inertial_macros.urdf.xacro"/>
+    <xacro:include filename="$(find agri_rover_description)/urdf/robots/robot.gazebo"/>
     <xacro:include filename="$(find agri_rover_description)/urdf/sensors/rgbd_camera.urdf.xacro"/>
     <xacro:include filename="$(find agri_rover_description)/urdf/sensors/lidar.urdf.xacro"/>
     <xacro:include filename="$(find agri_rover_description)/urdf/sensors/imu.urdf.xacro"/>
