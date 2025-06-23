@@ -24,7 +24,7 @@ find_package(xacro REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 install (
-  DIRECTORY parameters/
+  DIRECTORY parameters
   DESTINATION share/${PROJECT_NAME}
 )
 
